@@ -10,13 +10,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Sanskar3009/Jenkins-Project.git'
+                git branch: 'main', url: 'https://github.com/Sanskar3009/My_project.git'
             }
         }
 
         stage('Backend Build') {
             steps {
-                script {
+                dir ('backend') {
+                
                     sh "java -version"   // confirm Java 17
                     // If Maven
                     sh "./mvnw clean install"
@@ -28,7 +29,7 @@ pipeline {
 
         stage('Frontend Build') {
             steps {
-                script {
+                dir ('frontend') {
                     sh "java -version"   // confirm Java 17
                     // If frontend is Java-based (Spring Boot, etc.)
                     sh "./mvnw clean install"
