@@ -27,17 +27,6 @@ pipeline {
             }
         }
 
-        stage('Frontend Build') {
-            steps {
-                dir ('frontend') {
-                    sh "java -version"   // confirm Java 17
-                    // If frontend is Java-based (Spring Boot, etc.)
-                    sh "mvn clean install"
-                    // Or Gradle
-                    // sh "./gradlew build"
-                }
-            }
-        }
 
         stage('Deploy') {
             steps {
