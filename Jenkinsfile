@@ -20,7 +20,7 @@ pipeline {
                 
                     sh "java -version"   // confirm Java 17
                     // If Maven
-                    sh "./mvnw clean install"
+                    sh "mvn clean install"
                     // Or if Gradle
                     // sh "./gradlew build"
                 }
@@ -32,7 +32,7 @@ pipeline {
                 dir ('frontend') {
                     sh "java -version"   // confirm Java 17
                     // If frontend is Java-based (Spring Boot, etc.)
-                    sh "./mvnw clean install"
+                    sh "mvn clean install"
                     // Or Gradle
                     // sh "./gradlew build"
                 }
